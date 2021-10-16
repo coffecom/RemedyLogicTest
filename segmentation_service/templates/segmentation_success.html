@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>
+            Good job buddy.
+        </h1>
+        {% for i in images %}
+            <img src="{{ i.image.url }}" width="500px"/>
+        {% endfor %}
+    </body>
+</html>
