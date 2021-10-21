@@ -1,7 +1,11 @@
 from django import forms 
-from .models import ImageEntity
+# from .models import FileEntity
 
-class ImageEntityForm(forms.ModelForm): 
-    class Meta: 
-        model = ImageEntity 
-        fields = ['image'] 
+# class FileEntityForm(forms.ModelForm): 
+#     class Meta: 
+#         model = FileEntity 
+#         fields = ['file'] 
+
+
+# class UploadFileForm(forms.Form):
+#     file = forms.FileField()
