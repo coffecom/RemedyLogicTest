@@ -3,46 +3,32 @@
     <head>
         <meta charset="utf-8">
         <title>Upload file for segmentation</title>
+        <style type="text/css">
+            html, body {
+                height: 100%;
+            }
+
+            html {
+                display: table;
+                margin: auto;
+            }
+
+            body {
+                display: table-cell;
+                vertical-align: middle;
+            }
+        </style>
     </head>
 
-    <body>
-        <!-- List of uploaded documents -->
-        {% if documents %}
-            <ul>
-                {% for document in documents %}
-                    <li><a href="{{ document.docfile.url }}">{{ document.docfile.name }}</a></li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <p>No documents.</p>
-        {% endif %}
-
-        <!-- Upload form. Note enctype attribute! -->
-        
-        <!-- <form method="post" enctype="multipart/form-data">
+    <body>      
+        <form  action="{% url 'load' %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            <input type="file" name="myfile" />
-            <input type="submit" name="submit" value="Upload" />
-        </form> -->
-        
-        <form action="{% url 'load' %}" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            <label for="file">Filename:</label>
-            <input type="file" name="file" id="file" />
+            <label for="file">Please choose .mat file:</label>
+            <br/>
+            <input type="file" name="file" id="file" accept="mat" />
             <br />
-            <button  type="submit" name="submit" value="Submit" >Submit</button>
+            <button  type="submit" name="submit" value="Submit" style="width:200px">Submit</button>
         </form>
-            
-        <!-- <p>{{ form.non_field_errors }}</p>
-
-        <p>{{ form.docfile.label_tag }} {{ form.docfile.help_text }}</p>
-
-        <p>
-            {{ form.docfile.errors }}
-            {{ form.docfile }}
-        </p>
-        <input type="file" name="myfile" />
-        <p><input type="submit" value="Upload"/></p> -->
     </body>
 
 </html>

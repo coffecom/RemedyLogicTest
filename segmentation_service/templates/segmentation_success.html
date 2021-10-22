@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <style type="text/css">
+            html, body {
+                height: 100%;
+            }
+
+            html {
+                display: table;
+                margin: auto;
+            }
+
+            body {
+                display: table-cell;
+                vertical-align: middle;
+            }
+        </style>
+    </head>
     <body>
         <h1>
-            Good job buddy.
+            Good job buddy, here is your result:
         </h1>
-        {% for i in images %}
-            <img src="{{ i.image.url }}" width="500px"/>
-        {% endfor %}
+        <img  src='data:image/png;base64,{{ prediction }}'>
     </body>
 </html>
